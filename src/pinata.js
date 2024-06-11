@@ -1,3 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config(); // Load environment variables
+
+//import axios from 'axios';
+//import FormData from 'form-data';
+
+
+
 //require('dotenv').config();
 const key = process.env.REACT_APP_PINATA_KEY;
 const secret = process.env.REACT_APP_PINATA_SECRET;
@@ -11,8 +19,8 @@ export const uploadJSONToIPFS = async(JSONBody) => {
     return axios 
         .post(url, JSONBody, {
             headers: {
-                pinata_api_key: key,
-                pinata_secret_api_key: secret,
+                pinata_api_key:'a292c6990871e42e8b23', //key, 
+                pinata_secret_api_key:'5b97bc7f07bdb5eb1dc33c3c5ae6c2c23aed1925e762ae9d5691154112d5f8cf', //secret,
             }
         })
         .then(function (response) {
@@ -69,8 +77,8 @@ export const uploadFileToIPFS = async(file) => {
             maxBodyLength: 'Infinity',
             headers: {
                 'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-                pinata_api_key: key,
-                pinata_secret_api_key: secret,
+                pinata_api_key: 'a292c6990871e42e8b23',
+                pinata_secret_api_key: '5b97bc7f07bdb5eb1dc33c3c5ae6c2c23aed1925e762ae9d5691154112d5f8cf',
             }
         })
         .then(function (response) {
